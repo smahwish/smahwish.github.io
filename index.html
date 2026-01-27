@@ -34,43 +34,44 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        window.addEventListener('load', () => {
             const introText = document.getElementById('intro-text');
             const introOverlay = document.getElementById('intro-overlay');
             const targetElement = document.querySelector('.video-text-container');
 
-            // After zoom-in completes, move text to hero position
+            // Wait for zoom-in animation to complete
             setTimeout(() => {
-                // Get positions
                 const introRect = introText.getBoundingClientRect();
                 const targetRect = targetElement.getBoundingClientRect();
 
-                // Calculate how far to move
-                const moveX = targetRect.left - introRect.left + (targetRect.width - introRect.width) / 2;
-                const moveY = targetRect.top - introRect.top + (targetRect.height - introRect.height) / 2;
+                const moveX = targetRect.left - introRect.left;
+                const moveY = targetRect.top - introRect.top;
 
-                // Apply the movement
-                introText.style.transition = 'transform 1s ease-in-out, opacity 0.8s ease-in-out 0.5s';
+                // Stop CSS animation and set current state
+                introText.style.animation = 'none';
+                introText.style.opacity = '1';
+                introText.style.transform = 'scale(1)';
+                introText.offsetHeight; // Force reflow
+
+                // Move to hero position
+                introText.style.transition = 'transform 1.2s ease-in-out, opacity 0.4s ease-in-out 0.9s';
                 introText.style.transform = `translate(${moveX}px, ${moveY}px)`;
 
-                // Fade out the text as it reaches position
                 setTimeout(() => {
                     introText.style.opacity = '0';
-                }, 300);
+                }, 900);
 
-                // Fade out overlay
                 setTimeout(() => {
-                    introOverlay.style.transition = 'opacity 0.5s ease-out';
+                    introOverlay.style.transition = 'opacity 0.4s ease-out';
                     introOverlay.style.opacity = '0';
                     document.body.classList.remove('intro-active');
-                }, 800);
+                }, 1300);
 
-                // Remove overlay from DOM
                 setTimeout(() => {
                     introOverlay.remove();
-                }, 1500);
+                }, 1800);
 
-            }, 1800); // Start move after zoom-in (1.2s animation + 0.6s hold)
+            }, 1600);
         });
     </script>
 
