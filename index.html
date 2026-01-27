@@ -23,7 +23,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
-<body>
+<body class="intro-active">
+
+    <!-- Intro Animation Overlay -->
+    <div class="intro-overlay" id="intro-overlay">
+        <div class="intro-text">
+            <span class="line1">SYEDA</span>
+            <span class="line2">MAHWISH</span>
+        </div>
+    </div>
+
+    <script>
+        // Intro animation timing
+        setTimeout(() => {
+            document.getElementById('intro-overlay').classList.add('fade-out');
+            document.body.classList.remove('intro-active');
+        }, 2000); // Start fade after 2 seconds
+
+        // Remove overlay from DOM after animation completes
+        setTimeout(() => {
+            const overlay = document.getElementById('intro-overlay');
+            if (overlay) overlay.remove();
+        }, 3200);
+    </script>
 
     <nav>
         <div class="social-links">
