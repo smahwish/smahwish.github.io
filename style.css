@@ -6,9 +6,9 @@
     --brown-accent: #5c4332;
     --green-dark: #07170f;
     --green-hunter: #1c2e23;
-    --green-ivy: #2d4a38;
+    --green-ivy: #2a613f;/*#2d4a38;*/
     --green-accent: #3d684d;
-    --green-light: #667e6d;
+    --green-light: #698871; /*667e6d;*/
     --cream: #f0ebe3;
     --cream-muted: #d4cfc5;
     --text-primary: #e8e4dc;
@@ -169,9 +169,11 @@ nav .social-links .nav-text-link {
 
 .video-text-container {
     position: relative;
-    width: 644px;
-    height: 300px;
-    overflow: hidden;
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    aspect-ratio: 750 / 300;
+    overflow: visible;
 }
 
 .video-text-container video {
@@ -270,7 +272,7 @@ section {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    opacity: 0.15;
+    opacity: 0.25;
 }
 
 .video-bg {
@@ -306,6 +308,10 @@ h2 {
 /* ===== ABOUT SECTION ===== */
 #about {
     background-color: var(--brown-rich);
+}
+
+#about h2 {
+    font-size: 2.9em;
 }
 
 .about-text {
@@ -344,6 +350,10 @@ h2 {
     background-color: var(--green-dark);
     min-height: auto;
     padding: 0;
+}
+
+#journey h2 {
+    font-size: 2.8em;
 }
 
 .journey-container {
@@ -434,9 +444,13 @@ h2 {
 
 /* ===== RESEARCH INTERESTS ===== */
 #research {
-    background-color: var(--brown-rich);
+    background: radial-gradient(ellipse at center, var(--brown-warm) 0%, var(--brown-rich) 50%, var(--brown-deep) 100%);
     min-height: auto;
     padding: 100px 60px;
+}
+
+#research h2 {
+    font-size: 2.8em;
 }
 
 #research .interests {
