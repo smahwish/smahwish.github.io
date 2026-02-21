@@ -54,24 +54,24 @@
                 introText.offsetHeight; // Force reflow
 
                 // Move to hero position
-                introText.style.transition = 'transform 1.2s ease-in-out, opacity 0.4s ease-in-out 0.9s';
+                introText.style.transition = 'transform 0.7s ease-in-out, opacity 0.25s ease-in-out 0.5s';
                 introText.style.transform = `translate(${moveX}px, ${moveY}px)`;
 
                 setTimeout(() => {
                     introText.style.opacity = '0';
-                }, 900);
+                }, 500);
 
                 setTimeout(() => {
-                    introOverlay.style.transition = 'opacity 0.4s ease-out';
+                    introOverlay.style.transition = 'opacity 0.3s ease-out';
                     introOverlay.style.opacity = '0';
                     document.body.classList.remove('intro-active');
-                }, 1300);
+                }, 700);
 
                 setTimeout(() => {
                     introOverlay.remove();
-                }, 1800);
+                }, 1000);
 
-            }, 1600);
+            }, 400);
         });
     </script>
 
